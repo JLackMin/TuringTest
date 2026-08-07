@@ -31,6 +31,7 @@ namespace Midterm
         Vector2 _lookInput;
         float _camXrotation;
         bool _sprinting;
+        bool _sprintPressed;
         bool _jumpPressed;
         bool _shootPressed;
         
@@ -54,7 +55,7 @@ namespace Midterm
 
         public void OnSprint(InputValue value)
         {
-            _sprinting = value.isPressed;
+            _sprintPressed = value.isPressed;
         }
 
         public void OnJump(InputValue value)
@@ -119,8 +120,9 @@ namespace Midterm
 
         void MovePlayer()
         {
-            float moveMultiplier = _sprinting? _sprintMultiplier : 1f; //If sprinting, give it the multiplier, if not, normal speed
-        
+
+            _moveMultiplier = _sprintPressed? _sprintMultiplier:1f; //If sprinting, give it the multiplier, if not, normal speed
+
             Vector3 move = transform.forward * _moveInput.y + transform.right * _moveInput.x;
             
             //forwards/backwards movement + left/right movement
