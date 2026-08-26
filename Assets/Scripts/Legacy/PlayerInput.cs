@@ -57,6 +57,11 @@ namespace Midterm
             ProcessInputs();
         }
 
+        private void LateUpdate()
+        {
+            clear = true;
+        }
+
         private void ProcessInputs()
         {
             Vector2 move = moveAction.action.ReadValue<Vector2>();
@@ -75,11 +80,6 @@ namespace Midterm
 
             primaryShootPressed |= primaryShootAction.action.WasPressedThisFrame();
             secondaryShootPressed |= secondaryShootAction.action.WasPressedThisFrame();
-        }
-
-        private void FixedUpdate()
-        {
-            clear = true;
         }
 
         private void ClearInputs()

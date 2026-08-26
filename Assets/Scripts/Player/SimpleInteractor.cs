@@ -39,6 +39,8 @@ namespace Midterm
                 _selectable.OnHoverExit();
                 _selectable = null;
             }
+
+            Debug.DrawRay(_cam.transform.position, _cam.transform.forward * _interactDistance, Color.green);
         }
     }
 }
