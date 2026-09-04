@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 3661081779766236913}
   - component: {fileID: 6873697604139704140}
   - component: {fileID: 3497804527579038417}
+  - component: {fileID: -7345573128276128760}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -175,3 +176,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-7345573128276128760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642236188488789970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd3f80b9889e1d41bca3c7b94d6453b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Midterm.ProjectileScript
+  damage: 25

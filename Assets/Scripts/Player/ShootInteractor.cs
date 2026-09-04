@@ -13,6 +13,7 @@ namespace Midterm
         [SerializeField] private float _shootVelocity;
         [SerializeField] private Transform _shootPoint;
         [SerializeField] private PlayerMovementBehaviour _playerMovementBehaviour;
+        [SerializeField] private PlayerWeapon playerWeapon;
 
         private float _finalShootVelocity;
 

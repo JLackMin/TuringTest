@@ -75,6 +75,26 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "SwitchToProjectile",
+                    "type": "Button",
+                    "id": "b934dd93-b1aa-4a56-91c8-19550ba1d27e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "SwitchToRaycast",
+                    "type": "Button",
+                    "id": "88ef84f8-2d9f-40c1-86e1-6710253a9304",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -416,6 +436,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "288e49a1-d0c1-406b-87d0-92e455e7f2f7",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToRaycast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18a96512-aa50-4046-af2b-64d84ad1b4c3",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToProjectile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
