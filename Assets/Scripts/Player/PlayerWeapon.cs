@@ -5,21 +5,16 @@ namespace Midterm
 {
     public class PlayerWeapon : MonoBehaviour
     {
-        private IWeaponBehaviour currentWeapon;
+        /*public IWeaponBehaviour currentWeapon;
         public GameObject shotPoint;
 
         public GameObject weaponReference;
-        public GameObject rocketProjectile;
-        public GameObject bulletProjectile;
+        public Rigidbody rocketProjectile;
+        public Rigidbody bulletProjectile;
 
         void Start()
         {
             SwitchWeapon(new ProjectileWeaponBehaviour(this));
-        }
-
-        void OnShoot()
-        {
-            currentWeapon.FireWeapon(shotPoint.transform);
         }
 
         void OnSwitchToProjectile()
@@ -35,6 +30,6 @@ namespace Midterm
         {
             currentWeapon = newWeapon;
             UnityEngine.Debug.Log("Switched weapon behaviour to: " + newWeapon.ToString());
-        }
+        }*/
     }
 }

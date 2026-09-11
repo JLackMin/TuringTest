@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,8 @@ namespace Midterm
 
     public class PlayerInput : MonoBehaviour
     {
+        public static PlayerInput Instance {get; private set;}
+
         public float horizontalInput {get; private set;}
         public float verticalInput {get; private set;}
         public float mouseX {get; private set;}
@@ -17,6 +20,10 @@ namespace Midterm
         public bool activatePressed {get; private set;}
         public bool primaryShootPressed {get; private set;}
         public bool secondaryShootPressed {get; private set;}
+        public bool alpha1Pressed {get; private set;}
+        public bool alpha2Pressed {get; private set;}
+        public bool moveToPressed {get; private set;}
+        public bool followPressed {get; private set;}
 
         [Header("InputActions")]
         [SerializeField] InputActionReference moveAction;
@@ -26,8 +33,26 @@ namespace Midterm
         [SerializeField] InputActionReference activateAction;
         [SerializeField] InputActionReference primaryShootAction;
         [SerializeField] InputActionReference secondaryShootAction;
+        [SerializeField] InputActionReference alpha1Action;
+        [SerializeField] InputActionReference alpha2Action;
+        [SerializeField] InputActionReference moveToAction;
+        [SerializeField] InputActionReference followAction;
 
         private bool clear;
+
+        private void Awake()
+        {
+            //Singleton pattern - set singleton static reference if it has not been set yet
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            //Destroy any other instances of singleton reference
+            else if (Instance != null)
+            {
+                Destroy(this.gameObject);
+            }
+        }
 
         private void OnEnable()
         {
@@ -38,6 +63,10 @@ namespace Midterm
             activateAction.action.Enable();
             primaryShootAction.action.Enable();
             secondaryShootAction.action.Enable();
+            alpha1Action.action.Enable();
+            alpha2Action.action.Enable();
+            moveToAction.action.Enable();
+            followAction.action.Enable();
         }
 
         private void OnDisable()
@@ -49,6 +78,10 @@ namespace Midterm
             activateAction.action.Disable();
             primaryShootAction.action.Disable();
             secondaryShootAction.action.Disable();
+            alpha1Action.action.Disable();
+            alpha2Action.action.Disable();
+            moveToAction.action.Disable();
+            followAction.action.Disable();
         }
 
         private void Update()
@@ -80,6 +113,12 @@ namespace Midterm
 
             primaryShootPressed |= primaryShootAction.action.WasPressedThisFrame();
             secondaryShootPressed |= secondaryShootAction.action.WasPressedThisFrame();
+        
+            alpha1Pressed |= alpha1Action.action.WasPressedThisFrame();
+            alpha2Pressed |= alpha2Action.action.WasPressedThisFrame();
+
+            moveToPressed |= moveToAction.action.WasPressedThisFrame();
+            followPressed |= followAction.action.WasPressedThisFrame();
         }
 
         private void ClearInputs()
@@ -99,6 +138,12 @@ namespace Midterm
 
             primaryShootPressed = false;
             secondaryShootPressed = false;
+
+            alpha1Pressed = false;
+            alpha2Pressed = false;
+
+            moveToPressed = false;
+            followPressed = false;
 
             clear = false;
         }

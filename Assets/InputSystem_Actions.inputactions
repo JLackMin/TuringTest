@@ -77,7 +77,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "SwitchToProjectile",
+                    "name": "SwitchToBullet",
                     "type": "Button",
                     "id": "b934dd93-b1aa-4a56-91c8-19550ba1d27e",
                     "expectedControlType": "",
@@ -87,9 +87,29 @@
                     "priority": 0
                 },
                 {
-                    "name": "SwitchToRaycast",
+                    "name": "SwitchToRocket",
                     "type": "Button",
                     "id": "88ef84f8-2d9f-40c1-86e1-6710253a9304",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "MoveTo",
+                    "type": "Button",
+                    "id": "cb506932-50ad-4a45-8b22-539b7f333bc8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Follow",
+                    "type": "Button",
+                    "id": "47e700ef-9d05-4ff2-b4ee-83c548694e26",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -446,7 +466,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchToRaycast",
+                    "action": "SwitchToRocket",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -457,7 +477,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchToProjectile",
+                    "action": "SwitchToBullet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37f15b32-8690-45f7-b973-22b07c16ea50",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveTo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61605563-e47f-426a-83ac-cb296694d2d9",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Follow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

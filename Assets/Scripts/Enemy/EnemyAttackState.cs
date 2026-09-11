@@ -18,10 +18,33 @@ namespace Midterm
         public override void OnStateUpdate()
         {
             Debug.Log("Attack updating...");
+            _controller.gameObject.transform.LookAt(_controller.target.transform.position);
 
             if (_controller.canAttack)
             {
-                GameObject bullet = GameObject.Instantiate(_controller.projectilePrefab,_controller.projectileSpawnReference.transform.position,Quaternion.identity);   
+                /*PooledObject pooledLaser = ObjectPool.Instance.GetPooledObject();
+
+                if (pooledLaser != null)
+                {
+                    pooledLaser.gameObject.SetActive(true);
+
+                    ProjectileScript projectileScript = pooledLaser.GetComponent<ProjectileScript>();
+                    projectileScript.Initialize(_controller.gameObject.tag);
+
+                    //Get the Rigidbody and set the position and rotation of the bullet
+                    Rigidbody projectile = pooledLaser.GetComponent<Rigidbody>();
+                    projectile.transform.position = _controller.projectileSpawnReference.transform.position;
+                    projectile.transform.rotation = _controller.transform.rotation;
+
+                    //Apply a force to the bullet
+                    projectile.linearVelocity = _controller.transform.forward * projectileScript.speed;
+
+                    //Recycle the bullet with the object pool
+                    pooledLaser.DestroyWithTime(2f);
+                }*/
+
+                GameObject laser = GameObject.Instantiate(_controller.projectilePrefab,_controller.projectileSpawnReference.transform.position,_controller.transform.rotation);
+                laser.transform.LookAt(_controller.target.transform);
                 _controller.StartCoroutine(AttackDelay());
             }
         

@@ -20,7 +20,7 @@ namespace Midterm
 
             if (Physics.Raycast(ray, out _raycastHit, _pickupDistance, _pickupLayer))
             {
-                if (_input.activatePressed && !isPicked)
+                if (PlayerInput.Instance.activatePressed && !isPicked)
                 {
                     _pickable = _raycastHit.transform.GetComponent<IPickable>();
 
@@ -32,7 +32,7 @@ namespace Midterm
                 }
             }
 
-            if (_input.activatePressed && isPicked && _pickable != null)
+            if (PlayerInput.Instance.activatePressed && isPicked && _pickable != null)
             {
                 _pickable.OnDropped();
                 isPicked = false;

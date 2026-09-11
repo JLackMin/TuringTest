@@ -13,7 +13,7 @@ namespace Midterm
 
         void Start()
         {
-            OnHealthChanged?.Invoke(currentHealth);
+            OnHealthChanged?.Invoke(currentHealth); 
         }
 
         public void TakeDamage(float amount)
@@ -30,8 +30,6 @@ namespace Midterm
         public void Die()
         {
             OnDeath?.Invoke();
-
-            Debug.Log("You're dead.");
             Destroy(this.gameObject);
         }
     }

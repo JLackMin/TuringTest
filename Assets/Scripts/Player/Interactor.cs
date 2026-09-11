@@ -4,7 +4,8 @@ namespace Midterm
 {
     public abstract class Interactor : MonoBehaviour
     {
-        [SerializeField] protected PlayerInput _input;
+        //Delete because we have singleton now
+        //[SerializeField] protected PlayerInput _input;
 
         private void Update()
         {
