@@ -107,9 +107,19 @@
                     "priority": 0
                 },
                 {
-                    "name": "Follow",
+                    "name": "Return",
                     "type": "Button",
                     "id": "47e700ef-9d05-4ff2-b4ee-83c548694e26",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "f77f2e49-9601-4dde-b79a-05653d9777b5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -495,11 +505,22 @@
                 {
                     "name": "",
                     "id": "61605563-e47f-426a-83ac-cb296694d2d9",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Follow",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3c8bcad-fe74-401a-a9da-145e616932cc",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

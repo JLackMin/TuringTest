@@ -19,41 +19,32 @@ namespace Midterm
         {
             Debug.Log("Attack updating...");
             _controller.gameObject.transform.LookAt(_controller.target.transform.position);
+            _controller.gameObject.transform.rotation.Set(0,0,_controller.gameObject.transform.rotation.y,0);
 
             if (_controller.canAttack)
             {
-                /*PooledObject pooledLaser = ObjectPool.Instance.GetPooledObject();
+                PooledObject pooledLaser = ObjectPool.Instance.GetPooledLaser();
 
                 if (pooledLaser != null)
                 {
                     pooledLaser.gameObject.SetActive(true);
 
-                    ProjectileScript projectileScript = pooledLaser.GetComponent<ProjectileScript>();
-                    projectileScript.Initialize(_controller.gameObject.tag);
-
                     //Get the Rigidbody and set the position and rotation of the bullet
-                    Rigidbody projectile = pooledLaser.GetComponent<Rigidbody>();
-                    projectile.transform.position = _controller.projectileSpawnReference.transform.position;
-                    projectile.transform.rotation = _controller.transform.rotation;
+                    Rigidbody laser = pooledLaser.GetComponent<Rigidbody>();
+                    laser.transform.position = _controller.projectileSpawnReference.transform.position;
+                    laser.transform.rotation = Quaternion.identity;
+                    laser.transform.LookAt(_controller.target.transform);
 
-                    //Apply a force to the bullet
-                    projectile.linearVelocity = _controller.transform.forward * projectileScript.speed;
+                    _controller.StartCoroutine(AttackDelay(pooledLaser));
+                }
+            
+                float distance = Vector3.Distance(_controller.transform.position,_controller.target.transform.position);
 
-                    //Recycle the bullet with the object pool
-                    pooledLaser.DestroyWithTime(2f);
-                }*/
-
-                GameObject laser = GameObject.Instantiate(_controller.projectilePrefab,_controller.projectileSpawnReference.transform.position,_controller.transform.rotation);
-                laser.transform.LookAt(_controller.target.transform);
-                _controller.StartCoroutine(AttackDelay());
+                if (distance > _controller.attackRange)
+                {
+                    _controller.ChangeState(new EnemyFollowState(_controller));
+                }        
             }
-        
-            float distance = Vector3.Distance(_controller.transform.position,_controller.target.transform.position);
-
-            if (distance > _controller.attackRange)
-            {
-                _controller.ChangeState(new EnemyFollowState(_controller));
-            }        
         }
 
         public override void OnStateExit()
@@ -61,10 +52,11 @@ namespace Midterm
             Debug.Log("Enemy has exited Attack state.");
         }
 
-        public IEnumerator AttackDelay()
+        public IEnumerator AttackDelay(PooledObject laser)
         {
             _controller.canAttack = false;
             yield return new WaitForSeconds(2f);
+            laser.ResetObject();
             _controller.canAttack = true;
         }
     }

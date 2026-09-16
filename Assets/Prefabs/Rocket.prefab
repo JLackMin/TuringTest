@@ -103,9 +103,10 @@ GameObject:
   - component: {fileID: 6873697604139704140}
   - component: {fileID: 3497804527579038417}
   - component: {fileID: -7345573128276128760}
+  - component: {fileID: -2826099838315090335}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,3 +191,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Midterm.ProjectileScript
   damage: 25
   speed: 50
+--- !u!114 &-2826099838315090335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642236188488789970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13695ef9c56dfa542b683418a25ef4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Midterm.PooledObject

@@ -9,12 +9,6 @@ namespace Midterm
         private string enemyTag = "Enemy";
         private string playerTag = "Player";
         private bool damaged;
-        //private string ownershipTag;
-
-        /*public void Initialize(string _ownershipTag)
-        {
-            ownershipTag = _ownershipTag;
-        }*/
       
         void Update()
         {
@@ -23,6 +17,7 @@ namespace Midterm
 
         void OnTriggerEnter(Collider other)
         {
+            Debug.Log(other.gameObject);
             Health health = other.GetComponent<Health>();
 
             if (health != null && !damaged && other.gameObject.CompareTag(playerTag))
@@ -35,25 +30,21 @@ namespace Midterm
         void OnTriggerExit(Collider other)
         {
             damaged = false;
+            CheckPooledObject();
         }
 
         void OnCollisionEnter(Collision other)
         {
-            /*if (!other.gameObject.CompareTag(ownershipTag))
-            {
-                Health health = other.gameObject.GetComponent<Health>();
-
-                if (health != null)
-                {
-                    health.TakeDamage(damage);
-                }
-            }*/
-
             if (other.gameObject.CompareTag(enemyTag))
             {
                 other.gameObject.GetComponent<Health>().TakeDamage(damage);
             }
 
+            CheckPooledObject();
+        }
+
+        void CheckPooledObject()
+        {
             PooledObject pooledObject = GetComponent<PooledObject>();
 
             if (pooledObject != null)

@@ -17,14 +17,11 @@ namespace Midterm
 
         public void FireWeapon()
         {
-            PooledObject pooledBullet = ObjectPool.Instance.GetPooledObject();
+            PooledObject pooledBullet = ObjectPool.Instance.GetPooledBullet();
 
             if (pooledBullet != null)
             {
                 pooledBullet.gameObject.SetActive(true);
-
-                ProjectileScript projectileScript = pooledBullet.GetComponent<ProjectileScript>();
-                //projectileScript.Initialize(shootInteractor.gameObject.tag);
 
                 //Get the Rigidbody and set the position and rotation of the bullet
                 Rigidbody bullet = pooledBullet.GetComponent<Rigidbody>();

@@ -36,7 +36,7 @@ namespace Midterm
                 }
             }
 
-            if (PlayerInput.Instance.followPressed)
+            if (PlayerInput.Instance.returnPressed)
             {
                 commands.Clear();
                 commands.Enqueue(new FollowCommand(agent,transform.position));

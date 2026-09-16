@@ -23,7 +23,8 @@ namespace Midterm
         public bool alpha1Pressed {get; private set;}
         public bool alpha2Pressed {get; private set;}
         public bool moveToPressed {get; private set;}
-        public bool followPressed {get; private set;}
+        public bool returnPressed {get; private set;}
+        public bool escapePressed {get; private set;}
 
         [Header("InputActions")]
         [SerializeField] InputActionReference moveAction;
@@ -36,7 +37,8 @@ namespace Midterm
         [SerializeField] InputActionReference alpha1Action;
         [SerializeField] InputActionReference alpha2Action;
         [SerializeField] InputActionReference moveToAction;
-        [SerializeField] InputActionReference followAction;
+        [SerializeField] InputActionReference returnAction;
+        [SerializeField] InputActionReference escapeAction;
 
         private bool clear;
 
@@ -66,7 +68,8 @@ namespace Midterm
             alpha1Action.action.Enable();
             alpha2Action.action.Enable();
             moveToAction.action.Enable();
-            followAction.action.Enable();
+            returnAction.action.Enable();
+            escapeAction.action.Enable();
         }
 
         private void OnDisable()
@@ -81,7 +84,8 @@ namespace Midterm
             alpha1Action.action.Disable();
             alpha2Action.action.Disable();
             moveToAction.action.Disable();
-            followAction.action.Disable();
+            returnAction.action.Disable();
+            escapeAction.action.Disable();
         }
 
         private void Update()
@@ -97,6 +101,13 @@ namespace Midterm
 
         private void ProcessInputs()
         {
+            escapePressed |= escapeAction.action.WasPressedThisFrame();
+
+            if (GameManager.instance.currentGameState != GameManager.GameState.GamePlaying)
+            {
+                return;
+            }
+
             Vector2 move = moveAction.action.ReadValue<Vector2>();
             Vector2 look = lookAction.action.ReadValue<Vector2>();
 
@@ -118,7 +129,7 @@ namespace Midterm
             alpha2Pressed |= alpha2Action.action.WasPressedThisFrame();
 
             moveToPressed |= moveToAction.action.WasPressedThisFrame();
-            followPressed |= followAction.action.WasPressedThisFrame();
+            returnPressed |= returnAction.action.WasPressedThisFrame();
         }
 
         private void ClearInputs()
@@ -143,7 +154,9 @@ namespace Midterm
             alpha2Pressed = false;
 
             moveToPressed = false;
-            followPressed = false;
+            returnPressed = false;
+
+            escapePressed = false;
 
             clear = false;
         }

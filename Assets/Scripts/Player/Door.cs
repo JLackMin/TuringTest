@@ -62,11 +62,13 @@ namespace Midterm
 
             if (openDoor)
             {
+                Debug.Log("Door opening.");
                 anim.Play("OpenClose",0,Math.Clamp(anim.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
                 anim.SetFloat("Speed",1f);
             }
             else
             {
+                Debug.Log("Door closing.");
                 anim.Play("OpenClose",0,Math.Clamp(anim.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
                 anim.SetFloat("Speed",-1f);
             }
