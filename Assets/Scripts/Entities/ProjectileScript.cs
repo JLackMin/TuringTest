@@ -17,7 +17,6 @@ namespace Midterm
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.gameObject);
             Health health = other.GetComponent<Health>();
 
             if (health != null && !damaged && other.gameObject.CompareTag(playerTag))

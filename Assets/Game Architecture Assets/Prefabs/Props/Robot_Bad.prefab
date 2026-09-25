@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5357812024038653919}
   - component: {fileID: 5311274123366134102}
-  - component: {fileID: 104793788185321324}
   - component: {fileID: 8874685199000115236}
   - component: {fileID: 8083655323207012756}
   - component: {fileID: 4832760472386747672}
@@ -20,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5357812024038653919
 Transform:
   m_ObjectHideFlags: 0
@@ -64,19 +63,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &104793788185321324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847180578409718330}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8ccf81e78f38b4eba76633cb92805c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Midterm.NewMonoBehaviourScript
-  _targetPosition: {fileID: 2015884265125002039, guid: dab99aa0ec66d9842a0c9320042861e5, type: 3}
 --- !u!114 &8874685199000115236
 MonoBehaviour:
   m_ObjectHideFlags: 0

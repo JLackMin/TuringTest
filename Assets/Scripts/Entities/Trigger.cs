@@ -3,13 +3,12 @@ using UnityEngine.Events;
 
 namespace Midterm
 {
-    public class PushButton : MonoBehaviour, ISelectable
+    public class Trigger : MonoBehaviour, ISelectable
     {
         [SerializeField] private Material _default;
         [SerializeField] private Material _hoverColour;
         [SerializeField] private MeshRenderer _renderer;
-
-        public UnityEvent _onPush;
+        public UnityEvent _onInteract;
 
         public void OnHoverEnter()
         {
@@ -23,7 +22,7 @@ namespace Midterm
 
         public void OnSelect()
         {
-            _onPush?.Invoke();
+            _onInteract?.Invoke();
         }
     }
 }

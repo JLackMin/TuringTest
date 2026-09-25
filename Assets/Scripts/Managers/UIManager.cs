@@ -14,7 +14,7 @@ namespace Midterm
        void Awake()
         {
             playerHealth.OnHealthChanged += UpdateHealthDisplay;
-            playerHealth.OnDeath += ShowGameOver;
+            //playerHealth.OnDeath += ShowGameOver;
         }
 
        public void UpdateHealthDisplay(float currentHealth)

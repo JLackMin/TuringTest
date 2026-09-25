@@ -1,10 +1,9 @@
 using System;
-using Unity.Android.Gradle;
 using UnityEngine;
 
 namespace Midterm
 {
-    public class Door : MonoBehaviour
+    public class BlockPuzzleDoor : MonoBehaviour
     {
         [SerializeField] BlockDetection[] blockDetectors;
         [SerializeField] Renderer[] unlockLights;
@@ -62,13 +61,11 @@ namespace Midterm
 
             if (openDoor)
             {
-                Debug.Log("Door opening.");
                 anim.Play("OpenClose",0,Math.Clamp(anim.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
                 anim.SetFloat("Speed",1f);
             }
             else
             {
-                Debug.Log("Door closing.");
                 anim.Play("OpenClose",0,Math.Clamp(anim.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
                 anim.SetFloat("Speed",-1f);
             }

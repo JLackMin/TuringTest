@@ -1,6 +1,6 @@
 using System;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Midterm
 {
@@ -9,7 +9,7 @@ namespace Midterm
         public float currentHealth = 100f;
 
         public event Action<float> OnHealthChanged;
-        public event Action OnDeath;
+        public UnityEvent OnDeath;
 
         void Start()
         {
@@ -25,6 +25,12 @@ namespace Midterm
             {
                 Die();
             }
+        }
+
+        public void SetHealth(float value)
+        {
+            currentHealth = value;
+            OnHealthChanged?.Invoke(currentHealth);
         }
 
         public void Die()

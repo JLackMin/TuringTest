@@ -17,12 +17,13 @@ namespace Midterm
         public override void OnStateUpdate()
         {
             Debug.Log("Idle updating...");
+            
 
             float distance = Vector3.Distance(_controller.transform.position,_controller.target.transform.position);
             Vector3 direction = (_controller.target.transform.position - _controller.transform.position).normalized;
             RaycastHit hit;
 
-            if (distance <= _controller.detectionRange)
+            if (distance <= _controller.detectionRange && GameManager.instance.currentGameState == GameManager.GameState.GamePlaying)
             {
                 if (Physics.Raycast(_controller.transform.position, direction, out hit, _controller.detectionRange))
                 {

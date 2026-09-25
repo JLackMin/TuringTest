@@ -5,7 +5,7 @@ namespace Midterm
 {
     public class BlockDetection : MonoBehaviour
     {
-        public Door door; //Door will assign
+        public BlockPuzzleDoor door; //Door will assign
 
         List<Collider> blocks = new List<Collider>();
 

@@ -20,26 +20,34 @@ namespace Midterm
             Debug.Log("Attack updating...");
             _controller.gameObject.transform.LookAt(_controller.target.transform.position);
             _controller.gameObject.transform.rotation.Set(0,0,_controller.gameObject.transform.rotation.y,0);
+            
+            float distance = Vector3.Distance(_controller.transform.position,_controller.target.transform.position);
+            Vector3 direction = (_controller.target.transform.position - _controller.transform.position).normalized;
+            RaycastHit hit;
 
             if (_controller.canAttack)
             {
-                PooledObject pooledLaser = ObjectPool.Instance.GetPooledLaser();
-
-                if (pooledLaser != null)
+                if (Physics.Raycast(_controller.transform.position, direction, out hit, _controller.detectionRange))
                 {
-                    pooledLaser.gameObject.SetActive(true);
+                    if (hit.collider.gameObject == _controller.target)
+                    {
+                        PooledObject pooledLaser = ObjectPool.Instance.GetPooledLaser();
 
-                    //Get the Rigidbody and set the position and rotation of the bullet
-                    Rigidbody laser = pooledLaser.GetComponent<Rigidbody>();
-                    laser.transform.position = _controller.projectileSpawnReference.transform.position;
-                    laser.transform.rotation = Quaternion.identity;
-                    laser.transform.LookAt(_controller.target.transform);
+                        if (pooledLaser != null)
+                        {
+                            pooledLaser.gameObject.SetActive(true);
 
-                    _controller.StartCoroutine(AttackDelay(pooledLaser));
+                            //Get the Rigidbody and set the position and rotation of the bullet
+                            Rigidbody laser = pooledLaser.GetComponent<Rigidbody>();
+                            laser.transform.position = _controller.projectileSpawnReference.transform.position;
+                            laser.transform.rotation = Quaternion.identity;
+                            laser.transform.LookAt(_controller.target.transform);
+
+                            _controller.StartCoroutine(AttackDelay(pooledLaser));
+                        }
+                    }
                 }
             
-                float distance = Vector3.Distance(_controller.transform.position,_controller.target.transform.position);
-
                 if (distance > _controller.attackRange)
                 {
                     _controller.ChangeState(new EnemyFollowState(_controller));
