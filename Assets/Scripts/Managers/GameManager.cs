@@ -130,6 +130,7 @@ namespace Midterm
         public void CinematicEnded()
         {
             mainCamera.transform.localPosition = Vector3.zero;
+            mainCamera.transform.localRotation = Quaternion.identity;
             ChangeState(GameState.GamePlaying);
         }
 

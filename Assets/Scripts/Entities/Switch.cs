@@ -26,6 +26,7 @@ namespace Midterm
         public void OnSelect()
         {
             Animator animator = door.GetComponent<Animator>();
+            Debug.Log(GameManager.instance.GetHasKeycard());
 
             if (GameManager.instance.GetHasKeycard())
             {

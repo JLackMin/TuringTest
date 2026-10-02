@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
 
 namespace Midterm
 {

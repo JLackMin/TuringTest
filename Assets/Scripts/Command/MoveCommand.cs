@@ -7,11 +7,14 @@ namespace Midterm
     {
         private NavMeshAgent agent;
         private Vector3 destination;
+        int destinationLayer;
+        bool hasRB;
 
-        public MoveCommand(NavMeshAgent _agent, Vector3 _destination)
+        public MoveCommand(NavMeshAgent _agent, Vector3 _destination, int _destinationLayer)
         {
             agent = _agent;
             destination = _destination;
+            destinationLayer = _destinationLayer;
         }
 
         public override void Execute()
@@ -27,6 +30,14 @@ namespace Midterm
             {
                 return false;
             }
+
+            if (destinationLayer == 12 && !hasRB)
+            {
+                Debug.Log("Adding rigidbody.");
+                agent.gameObject.AddComponent<Rigidbody>();
+                hasRB = true;
+            }
+
             return true;
         }
     }

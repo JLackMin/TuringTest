@@ -100,9 +100,9 @@ GameObject:
   m_Component:
   - component: {fileID: 778011105559488681}
   - component: {fileID: 2221287726211727701}
-  - component: {fileID: 1617221581034297146}
   - component: {fileID: 547219450593667276}
   - component: {fileID: 7771062469148216772}
+  - component: {fileID: 5836382255839054787}
   m_Layer: 0
   m_Name: RobotLaser
   m_TagString: Laser
@@ -149,20 +149,6 @@ CapsuleCollider:
   m_Height: 0.30332375
   m_Direction: 2
   m_Center: {x: -0.0006028898, y: -0.000030269846, z: -0.0008172989}
---- !u!114 &1617221581034297146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387052284124434048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd3f80b9889e1d41bca3c7b94d6453b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Midterm.ProjectileScript
-  damage: 10
-  speed: 25
 --- !u!114 &547219450593667276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +188,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &5836382255839054787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387052284124434048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fd3fb01962236438eaa6091fd457e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Midterm.EnemyProjectileScript
+  speed: 15
+  damage: 10

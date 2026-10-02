@@ -25,7 +25,9 @@ namespace Midterm
                 //Get the Rigidbody and set the position and rotation of the bullet
                 Rigidbody rocket = pooledRocket.GetComponent<Rigidbody>();
                 rocket.transform.position = shootPoint.position;
-                rocket.transform.rotation = shootPoint.rotation;
+                rocket.transform.LookAt(shootPoint.forward);
+                rocket.transform.forward = shootPoint.forward;
+                rocket.freezeRotation = true;
 
                 //Apply a force to the bullet
                 rocket.linearVelocity = shootPoint.forward * shootInteractor.GetShootVelocity();

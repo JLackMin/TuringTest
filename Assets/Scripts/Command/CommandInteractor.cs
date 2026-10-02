@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.XR.Haptics;
+using Unity.VisualScripting;
 
 namespace Midterm
 {
@@ -26,12 +27,11 @@ namespace Midterm
 
                 if (Physics.Raycast(ray, out var hitInfo))
                 {
+                    int destinationLayer = hitInfo.transform.gameObject.layer;
+
                     if (hitInfo.transform.CompareTag("Ground"))
                     {
-                        GameObject pointer = Instantiate(pointerPrefab);
-                        pointer.transform.position = hitInfo.point;
-
-                        commands.Enqueue(new MoveCommand(agent,hitInfo.point));
+                        commands.Enqueue(new MoveCommand(agent,hitInfo.point,destinationLayer));
                     }
                 }
             }

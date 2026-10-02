@@ -13,7 +13,6 @@ namespace Midterm
         [SerializeField] float _shootVelocity;
         [SerializeField] Transform _shootPoint;
         [SerializeField] PlayerMovementBehaviour _playerMovementBehaviour;
-        [SerializeField] PlayerWeapon playerWeapon;
         [SerializeField] MeshRenderer _gunRenderer;
 
         private float _finalShootVelocity;
@@ -64,7 +63,6 @@ namespace Midterm
         public void SwitchWeapon(IWeaponBehaviour newWeapon)
         {
             _currentShootStrategy = newWeapon;
-            Debug.Log("Switched weapon behaviour to: " + newWeapon.GetType().ToString());
         }
     }
 

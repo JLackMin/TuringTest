@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 namespace Midterm
 {
@@ -7,6 +8,7 @@ namespace Midterm
     {
         public UnityEvent OnLevelStart;
         public UnityEvent OnLevelEnd;
+        public PlayableDirector cinematic;
 
         public void LevelStart()
         {

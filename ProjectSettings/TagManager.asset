@@ -12,6 +12,8 @@ TagManager:
   - LevelTransition
   - LevelStart
   - LevelEnd
+  - RobotHolder
+  - RobotGood
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - BlockDetection
   - Interact
   - Pickup
-  - 
-  - 
-  - 
+  - Wall
+  - Bullet
+  - FinalPlate
   - 
   - 
   - 

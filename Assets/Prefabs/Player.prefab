@@ -276,7 +276,6 @@ MonoBehaviour:
   _shootVelocity: 50
   _shootPoint: {fileID: 2523366130096136586}
   _playerMovementBehaviour: {fileID: 1983829287837651892}
-  playerWeapon: {fileID: 1756655990867752652}
   _gunRenderer: {fileID: 8914612172294086206}
 --- !u!114 &4434282002217503690
 MonoBehaviour:
@@ -326,6 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Midterm.Health
   currentHealth: 100
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1756655990867752652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,9 +388,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2523366130096136586}
   - {fileID: 7781160593367082321}
   - {fileID: 2111125756938391591}
+  - {fileID: 2523366130096136586}
   m_Father: {fileID: 2015884265125002039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5291987111195130867
@@ -533,8 +535,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446588992458421777}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.021918999, y: 0.02790054, z: 0.00029825128, w: 0.99937034}
-  m_LocalPosition: {x: -0.415, y: -0.27, z: 0.974}
+  m_LocalRotation: {x: -0.021918999, y: 0.027900541, z: 0.00029825128, w: 0.9993704}
+  m_LocalPosition: {x: -0.415, y: -0.26999998, z: 0.9740001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -954,7 +956,9 @@ MonoBehaviour:
   secondaryShootAction: {fileID: -4767370667523272877, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   alpha1Action: {fileID: -1344245377241843607, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   alpha2Action: {fileID: -3736564579350851805, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  commandAction: {fileID: 6181944202463160642, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  moveToAction: {fileID: 0}
+  returnAction: {fileID: 0}
+  escapeAction: {fileID: 0}
 --- !u!1001 &7815580610953790138
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -138,6 +138,8 @@ namespace Midterm
         {
             if (usedPool.Count > 0)
             {
+                _pooledObject.transform.rotation = Quaternion.identity;
+                
                 if (_pooledObject.gameObject.CompareTag("Bullet"))
                 {
                     bulletCount += 1;

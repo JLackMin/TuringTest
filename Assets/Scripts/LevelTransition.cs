@@ -8,35 +8,37 @@ namespace Midterm
     {
         [SerializeField] string currentLevelName;
         [SerializeField] TextMeshProUGUI levelText;
-        public PlayableDirector director;
+        [SerializeField] TextMeshProUGUI levelCompleteText;
         public LevelManager manager;
 
         private void OnTriggerEnter(Collider other)
         {
+            GameManager.instance.currentLevel = manager;
+
             if (other.CompareTag("Player"))
             {
-                GameManager.instance.currentLevel = manager;
-
-                director.Play();
-
-                Debug.Log("Player has entered the level transition");
-                
-                //Any other behaviour we need for this level transition
-
                 if (CompareTag("LevelStart"))
                 {
                     GameManager.instance.ChangeState(GameManager.GameState.LevelStart);
+                    levelText.gameObject.SetActive(true);
+                    levelCompleteText.gameObject.SetActive(false);
                     levelText.text = currentLevelName;
                     levelText.canvasRenderer.SetColor(Color.red);
-                    levelText.transform.Translate(50,0,0);
                 }
                 else if (CompareTag("LevelEnd"))
                 {
                     GameManager.instance.ChangeState(GameManager.GameState.LevelEnd);
-                    levelText.text = currentLevelName + " Complete!";
-                    levelText.canvasRenderer.SetColor(Color.green);
-                    levelText.transform.Translate(-50,0,0);
+                    levelText.gameObject.SetActive(false);
+                    levelCompleteText.gameObject.SetActive(true);
+                    levelCompleteText.text = currentLevelName + " Complete!";
+                    levelCompleteText.canvasRenderer.SetColor(Color.green);
                 }
+
+                manager.cinematic.Play();
+
+                Debug.Log("Player has entered the level transition");
+                
+                //Any other behaviour we need for this level transition
             }
         }
     }

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5357812024038653919
 Transform:
   m_ObjectHideFlags: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   attackRange: 10
   detectionRange: 20
   canAttack: 1
-  target: {fileID: 39634359081363965, guid: dab99aa0ec66d9842a0c9320042861e5, type: 3}
+  target: {fileID: 0}
   projectilePrefab: {fileID: 6387052284124434048, guid: 14e5ba01033e8dc43a8d849243c86b77, type: 3}
   projectileSpawnReference: {fileID: 3460076538587913384}
 --- !u!114 &8083655323207012756
@@ -95,6 +95,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Midterm.Health
   currentHealth: 30
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!136 &4832760472386747672
 CapsuleCollider:
   m_ObjectHideFlags: 0

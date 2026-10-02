@@ -35,6 +35,7 @@ namespace Midterm
 
         public void Unlock(BlockDetection blockDetection)
         {
+            Debug.Log(Array.IndexOf(blockDetectors,blockDetection));
             unlocks[Array.IndexOf(blockDetectors,blockDetection)] = true;
             unlockLights[Array.IndexOf(blockDetectors,blockDetection)].material.SetColor("_EmissionColor",Color.green * 20f);
             DoorOpenClose();
@@ -61,6 +62,7 @@ namespace Midterm
 
             if (openDoor)
             {
+                Debug.Log("Opening door.");
                 anim.Play("OpenClose",0,Math.Clamp(anim.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
                 anim.SetFloat("Speed",1f);
             }

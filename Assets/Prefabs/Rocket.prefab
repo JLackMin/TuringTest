@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3659075637208013523}
   - component: {fileID: 8856842690092108657}
   - component: {fileID: 2283131530004884324}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3497804527579038417}
   - component: {fileID: -7345573128276128760}
   - component: {fileID: -2826099838315090335}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocket
   m_TagString: Rocket
   m_Icon: {fileID: 0}
@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Midterm.ProjectileScript
   damage: 25
-  speed: 50
 --- !u!114 &-2826099838315090335
 MonoBehaviour:
   m_ObjectHideFlags: 0

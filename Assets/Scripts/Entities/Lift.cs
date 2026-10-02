@@ -3,23 +3,31 @@ using UnityEngine;
 
 namespace Midterm
 {
-    public class Lift : MonoBehaviour
+    public class Lift : MonoBehaviour, ISelectable
     {
-        void OnCollisionEnter(Collision collision)
+        [SerializeField] GameObject player;
+        public void OnHoverEnter()
         {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Invoke("LiftAnimation",1f);
-            }
+            return;
+        }
+
+        public void OnHoverExit()
+        {
+            return;
+        }
+
+        public void OnSelect()
+        {
+            player.transform.SetParent(transform);
+            Invoke("LiftAnimation",1f);
         }
 
         void LiftAnimation()
         {
             Debug.Log("Playing animation.");
             Animator animator = GetComponent<Animator>();
-            animator.Play("Lift_Room2",0,Math.Clamp(animator.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
+            animator.Play("Lift",0,Math.Clamp(animator.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
             animator.SetFloat("Speed",1f);
-
         }
     }
 }
