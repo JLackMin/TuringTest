@@ -55,7 +55,7 @@ namespace Midterm
             
             if (level != null)
             {
-                if (level.currentLevelName.Equals("Level 5") && CompareTag("LevelEnd"))
+                if (level.currentLevelName.Equals("Final Level") && CompareTag("LevelEnd"))
                 {
                     Application.Quit();
 
