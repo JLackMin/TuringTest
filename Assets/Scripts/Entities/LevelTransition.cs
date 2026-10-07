@@ -1,12 +1,12 @@
+using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Playables;
 
 namespace Midterm
 {
     public class LevelTransition : MonoBehaviour
     {
-        [SerializeField] string currentLevelName;
+        public string currentLevelName;
         [SerializeField] TextMeshProUGUI levelText;
         [SerializeField] TextMeshProUGUI levelCompleteText;
         public LevelManager manager;
@@ -34,11 +34,15 @@ namespace Midterm
                     levelCompleteText.canvasRenderer.SetColor(Color.green);
                 }
 
-                manager.cinematic.Play();
-
-                Debug.Log("Player has entered the level transition");
-                
-                //Any other behaviour we need for this level transition
+                if (currentLevelName.Equals("Level 1"))
+                {
+                    manager.cinematic.Play();                    
+                }
+                else
+                {
+                    PlayCinematic cinematic = GetComponent<PlayCinematic>();
+                    StartCoroutine(cinematic.Play(5f));
+                }           
             }
         }
     }

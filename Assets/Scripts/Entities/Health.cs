@@ -36,7 +36,17 @@ namespace Midterm
         public void Die()
         {
             OnDeath?.Invoke();
-            Destroy(this.gameObject);
+
+            if (CompareTag("Player"))
+            {
+                PlayCinematic cinematic = GetComponent<PlayCinematic>();
+                GameManager.instance.ChangeState(GameManager.GameState.GameOver);
+                StartCoroutine(cinematic.Play(3f));
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

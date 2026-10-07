@@ -1,27 +1,27 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Midterm
 {
     public class Button_FinalDoor : MonoBehaviour, ISelectable
     {
-        [SerializeField] private Material _default;
-        [SerializeField] private Material _hoverColour;
-        [SerializeField] private MeshRenderer _renderer;
+        public UnityEvent onSelect;
         [SerializeField] Animator animator;
 
         public void OnHoverEnter()
         {
-            _renderer.material = _hoverColour;
+            return;
         }
 
         public void OnHoverExit()
         {
-            _renderer.material = _default;
+            return;
         }
 
         public void OnSelect()
         {
+            onSelect?.Invoke();
             animator.Play("OpenClose",0,Math.Clamp(animator.GetCurrentAnimatorStateInfo(0).normalizedTime,0f,1f));
             animator.SetFloat("Speed",1f);
         }

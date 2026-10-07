@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,11 +8,14 @@ namespace Midterm
     {
         string targetTag = "RobotGood";
         public UnityEvent onTrigger;
+        [SerializeField] Animator animator;
+        [SerializeField] TextMeshProUGUI buttonText;
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag(targetTag))
             {
-                Invoke("BlockUnlocked",2f);
+                Invoke("Cinematic",1f);
+                Invoke("BlockUnlocked",3f);
                 Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
                 rb.detectCollisions = false;
             }
@@ -19,8 +23,26 @@ namespace Midterm
 
         void BlockUnlocked()
         {
-            Debug.Log("Trigger.");
             onTrigger?.Invoke();
         }
+
+        void Cinematic()
+        {
+            PlayCinematic cinematic = GetComponent<PlayCinematic>();
+            StartCoroutine(cinematic.Play(3f));
+            Invoke("ButtonText",3f);
+        }
+
+        void ButtonText()
+        {
+            buttonText.gameObject.SetActive(true);
+            Invoke("RemoveButtonText",3f);
+        }
+
+        void RemoveButtonText()
+        {
+            buttonText.gameObject.SetActive(false);
+        }
+
     }
 }
